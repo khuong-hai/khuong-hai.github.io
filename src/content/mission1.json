@@ -1,0 +1,21 @@
+{
+  "id": "m1",
+  "title": "Đưa bạn về nhà",
+  "goal": "Nhận biết các số đến 100",
+  "type": "match",
+  "intro": { "speaker": "Lumi", "text": "Bạn số này đang lạc rồi! Con giúp bạn ấy tìm đúng nhà nhé!" },
+  "rounds": [
+    { "target": 24, "houses": [14, 24, 42] },
+    { "target": 51, "houses": [15, 51, 52] },
+    { "target": 36, "houses": [63, 36, 33] },
+    { "target": 70, "houses": [17, 71, 70] },
+    { "target": 85, "houses": [58, 85, 89] }
+  ],
+  "feedback": {
+    "correct": ["Đúng rồi! Bạn ấy về đúng nhà!", "Tuyệt vời! Nhà sáng lên rồi kìa!"],
+    "wrong": "Hình như đây chưa phải nhà bạn ấy.",
+    "hint2": "Con thử nhìn kỹ chữ số hàng chục và hàng đơn vị xem nào!",
+    "hint3": "Nhà đúng đang phát sáng đó, con bấm vào nhé!"
+  },
+  "reward": { "energy": 1 }
+}

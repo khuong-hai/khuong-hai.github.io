@@ -1,0 +1,28 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+
+# Video cinematic quá nặng (>100MB) cho git thường — host qua GitHub Release
+# asset thay vì nằm trong repo (xem VideoIntro.jsx: VIDEO_SRC).
+public/assets/video/intro_cinematic.mp4
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@500;600;700;800&display=swap');
+
+:root {
+  /* Numeria design tokens */
+  --ink-deep: #241645;      /* deep indigo night — base background */
+  --ink-mid: #402a72;       /* mid violet — panels/gradients */
+  --ink-soft: #6b4fae;      /* lighter violet accent */
+  --crystal: #4fe8c4;       /* teal crystal — energy / primary accent */
+  --crystal-glow: #a6fbe6;
+  --gold: #ffd166;          /* star / reward gold */
+  --coral: #ff6f59;         /* warm accent — Zero / alerts */
+  --paper: #fff8ed;         /* dialogue / card surface */
+  --paper-ink: #2b1c4f;     /* text on paper */
+  --line: rgba(255,255,255,0.14);
+
+  --font-display: 'Baloo 2', system-ui, sans-serif;
+  --font-body: 'Nunito', system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--ink-deep);
+  color: var(--paper);
+  overflow: hidden;
+}
+
+button {
+  font-family: var(--font-display);
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+button:focus-visible {
+  outline: 3px solid var(--crystal);
+  outline-offset: 2px;
+}
+
+.numeria-app {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  background: radial-gradient(ellipse at 50% 20%, var(--ink-mid) 0%, var(--ink-deep) 70%);
+}
+
+.safe-stage {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(16px, 4vw, 48px);
+}
+
+.stars-bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(1.5px 1.5px at 20% 30%, rgba(255,255,255,0.55), transparent),
+    radial-gradient(1.5px 1.5px at 70% 60%, rgba(255,255,255,0.4), transparent),
+    radial-gradient(2px 2px at 40% 80%, rgba(255,255,255,0.5), transparent),
+    radial-gradient(1.5px 1.5px at 85% 20%, rgba(255,255,255,0.45), transparent),
+    radial-gradient(1px 1px at 55% 45%, rgba(255,255,255,0.35), transparent),
+    radial-gradient(1.5px 1.5px at 10% 65%, rgba(255,255,255,0.4), transparent);
+  background-size: 100% 100%;
+  pointer-events: none;
+}
+
+.btn-primary {
+  font-size: clamp(16px, 2.6vw, 22px);
+  font-weight: 700;
+  color: var(--ink-deep);
+  background: linear-gradient(180deg, var(--crystal-glow), var(--crystal));
+  padding: 14px 34px;
+  border-radius: 999px;
+  box-shadow: 0 6px 0 #2ba98a, 0 10px 20px rgba(0,0,0,0.25);
+  transition: transform 0.12s ease;
+}
+.btn-primary:active {
+  transform: translateY(4px);
+  box-shadow: 0 2px 0 #2ba98a, 0 4px 10px rgba(0,0,0,0.25);
+}
+.btn-primary:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.btn-ghost {
+  font-size: clamp(13px, 1.8vw, 16px);
+  font-weight: 600;
+  color: var(--paper);
+  background: rgba(255,255,255,0.08);
+  border: 1.5px solid var(--line);
+  padding: 8px 18px;
+  border-radius: 999px;
+}
+
+.font-display { font-family: var(--font-display); }
+
+.dialogue-box {
+  background: var(--paper);
+  color: var(--paper-ink);
+  border-radius: 24px;
+  padding: 16px 22px;
+  box-shadow: 0 10px 0 rgba(0,0,0,0.12), 0 16px 30px rgba(0,0,0,0.25);
+  max-width: 480px;
+  font-size: clamp(15px, 2.4vw, 19px);
+  font-weight: 600;
+  line-height: 1.4;
+  position: relative;
+}
+
+.dialogue-name {
+  font-family: var(--font-display);
+  font-size: 0.72em;
+  font-weight: 700;
+  color: var(--ink-soft);
+  margin-bottom: 4px;
+  display: block;
+}
+
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+.float { animation: float-y 3.2s ease-in-out infinite; }
+
+@keyframes pop-in {
+  0% { opacity: 0; transform: scale(0.7); }
+  100% { opacity: 1; transform: scale(1); }
+}
+.pop-in { animation: pop-in 0.35s cubic-bezier(.34,1.56,.64,1) both; }
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-6px); }
+  75% { transform: translateX(6px); }
+}
+.shake { animation: shake 0.35s ease; }
+
+@keyframes glow-pulse {
+  0%, 100% { filter: drop-shadow(0 0 6px var(--crystal)); }
+  50% { filter: drop-shadow(0 0 22px var(--crystal-glow)); }
+}
+.glow-pulse { animation: glow-pulse 1.6s ease-in-out infinite; }
+
+.map-node {
+  transition: transform 0.15s ease;
+}
+.map-node:not(:disabled):hover { transform: translate(-50%, -50%) scale(1.06); }
+.map-node:not(:disabled):active { transform: translate(-50%, -50%) scale(0.94); }
+.map-node:disabled { cursor: default; }
+
+/* Dùng cho card ở luồng flow bình thường (không absolute + translate như
+   .map-node) — hover/active chỉ scale tại chỗ, không lệch vị trí. */
+.pick-card {
+  transition: transform 0.15s ease;
+}
+.pick-card:not(:disabled):hover { transform: scale(1.05); }
+.pick-card:not(:disabled):active { transform: scale(0.96); }
+.pick-card:disabled { cursor: default; }
+
+/* Nút vô hình đè lên biển chỉ đường đã vẽ sẵn trong ảnh main menu — chỉ
+   sáng nhẹ khi hover, giữ nguyên vị trí (nút hình chữ nhật, không translate
+   center như .map-node). */
+.menu-sign {
+  transition: filter 0.15s ease, transform 0.15s ease;
+}
+.menu-sign:hover { filter: brightness(1.12); transform: translate(-50%, -50%) scale(1.03); }
+.menu-sign:active { transform: translate(-50%, -50%) scale(0.97); }
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.fade-in { animation: fade-in 0.6s ease both; }
+
+/* PIN pad (Parent PIN / Student PIN — create + login) */
+.pin-dots {
+  display: flex;
+  gap: clamp(10px, 2.4vw, 18px);
+}
+.pin-dot {
+  width: clamp(14px, 2.6vw, 20px);
+  height: clamp(14px, 2.6vw, 20px);
+  border-radius: 50%;
+  border: 2px solid var(--paper);
+  background: transparent;
+  transition: background 0.12s ease, transform 0.12s ease;
+}
+.pin-dot.filled {
+  background: var(--crystal);
+  border-color: var(--crystal);
+  transform: scale(1.1);
+}
+.pin-keys {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(10px, 2vw, 16px);
+}
+.pin-key {
+  width: clamp(52px, 11vw, 72px);
+  height: clamp(52px, 11vw, 72px);
+  border-radius: 50%;
+  background: var(--paper);
+  color: var(--paper-ink);
+  font-family: var(--font-display);
+  font-size: clamp(18px, 3vw, 24px);
+  font-weight: 700;
+  box-shadow: 0 4px 0 rgba(0,0,0,0.18);
+  transition: transform 0.1s ease;
+}
+.pin-key:active { transform: translateY(3px); box-shadow: 0 1px 0 rgba(0,0,0,0.18); }
+
+/* Input fields dùng trong các form auth (signup, email/mật khẩu) */
+.auth-input {
+  width: 100%;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: var(--font-body);
+  padding: 12px 16px;
+  border-radius: 14px;
+  border: none;
+  background: var(--paper);
+  color: var(--paper-ink);
+  margin-bottom: 12px;
+}

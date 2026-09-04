@@ -1,0 +1,21 @@
+{
+  "id": "m2",
+  "title": "Xây lại ngôi nhà số",
+  "goal": "Hiểu chục và đơn vị",
+  "type": "build",
+  "intro": { "speaker": "Lumi", "text": "Ngôi nhà này bị vỡ mất rồi! Con ghép đúng số chục và số đơn vị để xây lại nhé!" },
+  "rounds": [
+    { "target": 23, "tens": 2, "ones": 3, "tensOptions": [1, 2, 3], "onesOptions": [2, 3, 4] },
+    { "target": 41, "tens": 4, "ones": 1, "tensOptions": [3, 4, 5], "onesOptions": [0, 1, 2] },
+    { "target": 56, "tens": 5, "ones": 6, "tensOptions": [4, 5, 6], "onesOptions": [5, 6, 7] },
+    { "target": 70, "tens": 7, "ones": 0, "tensOptions": [6, 7, 8], "onesOptions": [0, 1, 2] },
+    { "target": 85, "tens": 8, "ones": 5, "tensOptions": [7, 8, 9], "onesOptions": [4, 5, 6] }
+  ],
+  "feedback": {
+    "correct": ["Chính xác! Ngôi nhà được xây lại rồi!", "Giỏi quá! Con số đã đúng vị trí!"],
+    "wrong": "Chưa đúng rồi, con thử lại nhé.",
+    "hint2": "Số chục là số đứng trước, số đơn vị là số đứng sau đó!",
+    "hint3": "Numeria đang gợi ý cho con bằng ánh sáng kìa!"
+  },
+  "reward": { "energy": 1 }
+}

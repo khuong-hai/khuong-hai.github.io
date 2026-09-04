@@ -1,0 +1,15 @@
+{
+  "id": "g2-w1-c1",
+  "title": "Những Ngôi Nhà Số Thất Lạc",
+  "energyTarget": 5,
+  "introStory": [
+    { "speaker": null, "text": "Sau khi Trái Tim Toán Học bị phá, con và Lumi tới khu vực đầu tiên của Numeria." },
+    { "speaker": null, "text": "Các Number Character đang chạy lạc khắp nơi..." },
+    { "speaker": "number", "text": "Tớ không nhớ nhà mình ở đâu nữa!" },
+    { "speaker": "Lumi", "text": "Chúng ta cần giúp các bạn và thu thập 5 Năng lượng để khởi động lại Cổng Số!" }
+  ],
+  "missions": [
+    { "id": "m1", "name": "Đưa bạn về nhà", "type": "match", "reward": "energy" },
+    { "id": "m2", "name": "Xây lại ngôi nhà số", "type": "build", "reward": "energy" }
+  ]
+}
