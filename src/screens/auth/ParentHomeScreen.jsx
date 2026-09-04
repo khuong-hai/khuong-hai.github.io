@@ -22,7 +22,13 @@ export default function ParentHomeScreen({ onBack }) {
           maxWidth: 480,
         }}
       >
-        <span style={{ fontSize: 56 }}>👨‍👩‍👧</span>
+        <img
+          src="/assets/avatar-cards/card_phuhuynh.png"
+          alt="Phụ huynh"
+          className="float"
+          style={{ width: 150, height: 'auto', borderRadius: 20, boxShadow: '0 6px 0 rgba(0,0,0,0.18), 0 10px 20px rgba(0,0,0,0.2)' }}
+          draggable={false}
+        />
         <h2 className="font-display">Khu vực Phụ huynh</h2>
         <div className="dialogue-box">
           <p style={{ margin: 0 }}>

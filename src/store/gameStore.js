@@ -43,12 +43,20 @@ export const AVATARS = [
   { id: 'giaima', name: 'Nhà Giải Mã', item: 'Chìa Khoá Toán Học', badge: '🗝️' },
 ];
 
+// Dùng khi profile chưa có avatarId (vd: thiết bị đã READY đăng nhập thẳng
+// vào main-menu, bỏ qua màn avatar-select) — tránh AVATARS.find() ra
+// undefined làm vỡ ảnh ở MainMenuScreen/NameInput/RoleSelectScreen.
+const DEFAULT_AVATAR_ID = AVATARS[0].id;
+
 // Màu/khung nhân vật CHUNG cho cả 4 — chỉ 1 nhân vật, đổi trang phục/vật phẩm
 // (theo quyết định "1 nhân vật, 4 bộ trang phục" thay vì 4 nhân vật riêng biệt).
 export const PLAYER_BASE = { color: '#4fe8c4', accent: '#2ba98a' };
 
 export const useGameStore = create((set, get) => ({
-  profile: saved?.profile || { name: '', avatarId: null },
+  profile: {
+    name: saved?.profile?.name || '',
+    avatarId: saved?.profile?.avatarId || DEFAULT_AVATAR_ID,
+  },
   energy: saved?.energy ?? 0,
   stars: saved?.stars ?? 0,
   badges: saved?.badges || [],
@@ -101,7 +109,7 @@ export const useGameStore = create((set, get) => ({
   resetSave() {
     localStorage.removeItem(STORAGE_KEY);
     set({
-      profile: { name: '', avatarId: null },
+      profile: { name: '', avatarId: DEFAULT_AVATAR_ID },
       energy: 0,
       stars: 0,
       badges: [],

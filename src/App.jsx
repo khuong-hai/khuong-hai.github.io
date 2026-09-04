@@ -155,7 +155,16 @@ export default function App() {
       )}
 
       {stage === 'student-pin-login' && (
-        <StudentPinLoginScreen onSuccess={() => setStage('main-menu')} onBack={() => setStage('role-select')} />
+        <StudentPinLoginScreen
+          // profile.name rỗng nghĩa là chưa từng hoàn thành avatar-select/
+          // name-input thật (vd: vừa tạo PIN xong rồi reload dở chừng —
+          // DEFAULT_AVATAR_ID trong gameStore chỉ để card Role Select không
+          // vỡ ảnh, KHÔNG coi là "đã chọn nhân vật thật") — vẫn đưa qua đúng
+          // luồng chọn nhân vật + đặt tên như học sinh mới, không nhảy tắt
+          // vào main-menu.
+          onSuccess={() => setStage(profile.name ? 'main-menu' : 'avatar-select')}
+          onBack={() => setStage('role-select')}
+        />
       )}
 
       {stage === 'parent-pin-login' && (

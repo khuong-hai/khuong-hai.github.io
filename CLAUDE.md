@@ -6,6 +6,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Numeria — a React 19 + Vite + Zustand educational game for Vietnamese grade-2 students (number sense: recognizing numbers to 100, tens/ones composition). Currently a proof-of-concept demo covering Chapter 1, Missions 1–2 only.
 
+## Git / deploy policy
+
+**Never run `git push`, `npm run deploy`, or any other action that publishes to GitHub/GitHub Pages without the user's explicit confirmation for that specific change.** Editing files locally, running `npm run build`, and testing on the local dev server are fine without asking. Only push/deploy after the user has tested the local change and clearly says to publish it — a prior approval does not carry over to the next change.
+
 ## Commands
 
 ```bash

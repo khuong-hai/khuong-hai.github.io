@@ -8,6 +8,7 @@ const FILES = {
   vongtieptheo: '/assets/ui/btn_vongtieptheo.png',
   xacnhan: '/assets/ui/btn_xacnhan.png',
   hoanthanh: '/assets/ui/btn_hoanthanh.png',
+  thamgia: '/assets/ui/btn_thamgia.png',
 };
 
 export default function ImgButton({ kind, onClick, height = 'clamp(48px, 8vw, 68px)', disabled = false }) {
