@@ -17,10 +17,6 @@ dist-ssr
 !.vscode/extensions.json
 .idea
 .DS_Store
-
-# Video cinematic quá nặng (>100MB) cho git thường — host qua GitHub Release
-# asset thay vì nằm trong repo (xem VideoIntro.jsx: VIDEO_SRC).
-public/assets/video/intro_cinematic.mp4
 *.suo
 *.ntvs*
 *.njsproj
